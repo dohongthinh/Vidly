@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
+using Vidly.ViewModel;
 
 namespace Vidly.Controllers
 {
@@ -13,14 +14,23 @@ namespace Vidly.Controllers
         public ActionResult Random() //ActionResult helps to return various action results
         {
             var movie = new Movies() { Name = "Bumblebee!" };
+            var customers = new List<Customer>
+            {
+                new Customer{Name = "Customer 1"},
+                new Customer {Name  ="Customer 2"}
+            };
 
-            return View(movie);
-            //return Content("Hello World!");
-            //return HttpNotFound();
-            //return new EmptyResult();
-            //return new ViewResult();
+            var viewModel = new RandomMovieViewModel
+            {
+                Movie = movie,
+                Customers = customers
+            };
+            return View(viewModel); // this is also the best way to pass datas to view
+            //return Content("Hello World!"); //return HttpNotFound(); //return new EmptyResult(); //return new ViewResult();
             // return RedirectToAction(name of action, controller, pass argument to target action);
             //return RedirectToAction("Index", "Home", new { page = 1, sortBy = "name" });
+
+            
         }
 
         public ActionResult Edit(int id)
