@@ -14,12 +14,13 @@ namespace Vidly.Controllers
         public ActionResult Random() //ActionResult helps to return various action results
         {
             var movie = new Movies() { Name = "Bumblebee!" };
+            //add 2 customer objects
             var customers = new List<Customer>
             {
                 new Customer{Name = "Customer 1"},
                 new Customer {Name  ="Customer 2"}
             };
-
+            //initialize movie properties
             var viewModel = new RandomMovieViewModel
             {
                 Movie = movie,
