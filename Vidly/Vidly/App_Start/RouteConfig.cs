@@ -12,6 +12,8 @@ namespace Vidly
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
+            /* 
             //Define from specific to generic route
             //Define a custom route
             routes.MapRoute(
@@ -20,6 +22,10 @@ namespace Vidly
                 new { controller ="Movies",action ="ByReleaseDate" },//specify the defaults
                 //add constrain to url
                 new { year =@"\d{4}",month =@"\d{2}"}); // @"\" = "\\" 
+            */ //in large application default gonna give u a mess -> can work on a better way
+               // -> follow the under
+            routes.MapMvcAttributeRoutes();
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

@@ -130,8 +130,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Movie.cs" />
-    <Compile Include="Controllers\MovieController.cs" />
+    <Compile Include="Models\Movies.cs" />
+    <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
