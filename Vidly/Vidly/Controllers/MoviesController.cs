@@ -10,6 +10,24 @@ namespace Vidly.Controllers
 {
     public class MoviesController : Controller
     {
+        //Section 2 work starts from here
+        public ViewResult Index()
+        {
+            var movies = GetMovies();
+            return View(movies);
+        }
+
+        public IEnumerable<Movies> GetMovies()
+        {
+            return new List<Movies>
+            {
+                new Movies {Id =1, Name ="Shrek"},
+                new Movies {Id =2, Name ="Wall-e"}
+            };
+        }
+
+        //Section 2 knowledge starts from here
+        //In order to have the works work, put Index method into comments
         // GET: Movie/Random
         public ActionResult Random() //ActionResult helps to return various action results
         {
@@ -41,14 +59,14 @@ namespace Vidly.Controllers
 
         //movies
         // ? is for unnullable
-        public ActionResult Index(int? pageIndex, string sortBy)
-        {
-            if (!pageIndex.HasValue)
-                pageIndex = 1;
-            if (String.IsNullOrWhiteSpace(sortBy))
-                sortBy = "Name";
-            return Content(String.Format("pageIndex={0}&sortBy={1}", pageIndex, sortBy));
-        }
+        //public ActionResult Index(int? pageIndex, string sortBy)
+        //{
+        //    if (!pageIndex.HasValue)
+        //        pageIndex = 1;
+        //    if (String.IsNullOrWhiteSpace(sortBy))
+        //        sortBy = "Name";
+        //    return Content(String.Format("pageIndex={0}&sortBy={1}", pageIndex, sortBy));
+        //}
 
         //apply route to MapMVCattributeroute() -> help handle routes easier
         [Route("movies/released/{year}/{month:regex(\\d{4}):range(1,12)}")]//regex is not a string -> \\ 
